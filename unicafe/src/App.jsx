@@ -7,9 +7,12 @@ const Button = ({ eachVal, text }) => {
 
 const StatisticLine = ({ text, value }) => {
   return (
-    <div>
-      {text}: {value}
-    </div>
+    <tbody>
+      <tr>
+        <td>{text}</td>
+        <td>{value}</td>
+      </tr>
+    </tbody>
   );
 };
 
@@ -24,15 +27,14 @@ const Statistics = ({ good, neutral, bad }) => {
 
   if (good > 0 || neutral > 0 || bad || 0) {
     return (
-      <>
+      <table>
         <StatisticLine text='good' value={good} />
         <StatisticLine text='neutral' value={neutral} />
         <StatisticLine text='bad' value={bad} />
-
         <StatisticLine text='all' value={totalValue} />
         <StatisticLine text='average' value={avgScore} />
         <StatisticLine text='Positive Percentage' value={percentPos} />
-      </>
+      </table>
     );
   } else {
     return <div>No feedback given</div>;
